@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from  '@angular/common/http';
 import { Observable } from  'rxjs';
 import { map } from  "rxjs/operators";
-import { Nasa } from './space.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,19 +14,18 @@ export class SpaceService {
   this.service  =  param_service;
 }
 
-  private nasas:Nasa[] =[]
+  
 
-  public getnasa(): Observable<Nasa[]> {
-    const  obs1:Observable<any> = this.service.get("assets/nasa.json");
+  public getImageOfTheDay(): Observable<string> {
+    const  obs1: Observable<any> = this.service.get(
+      "https://api.nasa.gov/planetary/apod?api_key=gerdCPC9e3M1eEhyJLlWaAxXRpsy3nUW7WPhPe7v"
+      );
     const  treatment  = ( param_data:any) => {
-        return  param_data.nasas as  Nasa[];
+        return  param_data.url as  string;
     };
   
     return  obs1.pipe( map( treatment) );
   }
   
-  public addnasa(nasa:Nasa){
-    this.nasas.push(nasa)
-  }
-
+  
 }

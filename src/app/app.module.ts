@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PlanetComponent } from './planet/planet.component';
-import { SpaceService } from './space.service';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlanetComponent
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [SpaceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
