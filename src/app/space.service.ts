@@ -13,7 +13,7 @@ export class SpaceService {
   constructor(param_service:  HttpClient) {
   this.service  =  param_service;
 }
-
+ 
   
 
   public getImageOfTheDay(): Observable<string> {
@@ -23,9 +23,10 @@ export class SpaceService {
     const  treatment  = ( param_data:any) => {
         return  param_data.url as  string;
     };
+    
   
     return  obs1.pipe( map( treatment) );
   }
   
-  
+ 
 }
